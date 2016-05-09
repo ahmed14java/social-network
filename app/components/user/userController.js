@@ -10,4 +10,5 @@ var app = angular.module('web-gui-app.user')
     baseUsers.post($scope.user);
     console.log("postado...");
   }
+
 }]);

@@ -9,9 +9,10 @@
         </button>
         <a class="navbar-brand" ng-link="['/User/NewUser']">Web GUI</a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" ng-init="clickedLink = 'userList'">
-          <li ng-class="{'active':clickedLink === 'userList'}" ng-click="clickedLink = 'userList'"><a ng-link="['/User/ListUser']">List<span class="sr-only">(current)</span></a></li>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <button type="button" class="btn btn-primary navbar-btn">Sign in</button>
+          <button type="button" class="btn btn-success navbar-btn">Sign up</button>
         </ul>
       </div>
     </div>
