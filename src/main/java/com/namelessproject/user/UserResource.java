@@ -32,7 +32,7 @@ public class UserResource {
 		this.userService = userService;
 	}
 
-	@CrossOrigin(origins = "http://172.16.210.54:8081")
+	@CrossOrigin(origins = "http://127.0.0.1:50001")
 	@RequestMapping(method = RequestMethod.POST, 
 				  consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> createUser(@RequestBody UserEntity user) 
