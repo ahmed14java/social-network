@@ -23,6 +23,7 @@ import com.namelessproject.common.validation.ValidationFailure;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = {"*"})
 public class UserResource {
 
 	private UserService userService;
@@ -32,7 +33,6 @@ public class UserResource {
 		this.userService = userService;
 	}
 
-	@CrossOrigin(origins = "http://127.0.0.1:50001")
 	@RequestMapping(method = RequestMethod.POST, 
 				  consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> createUser(@RequestBody UserEntity user) 

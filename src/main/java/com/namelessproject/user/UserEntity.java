@@ -12,6 +12,8 @@ import javax.persistence.TableGenerator;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.namelessproject.common.validation.constraint.Unique;
+
 @Entity
 @Table(name = "USER")
 @Access(AccessType.FIELD)
@@ -28,9 +30,11 @@ public class UserEntity {
 	private Long id;
 	@Column(unique = true)
 	@NotBlank(message = "user.username.cannot.be.empty")
+	@Unique(propertyName = "username", message = "user.username.not.unique")
 	private String username;
 	@Column(unique = true)
 	@NotBlank(message = "user.email.cannot.be.empty")
+	@Unique(propertyName = "email", message = "user.email.not.unique")
 	private String email;
 	@NotBlank(message = "user.password.cannot.be.empty")
 	private String password;
