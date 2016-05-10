@@ -1,5 +1,5 @@
 var app = angular.module('web-gui-app', [
-  'ngComponentRouter',
+  'ui.router',
   'ngMessages',
   'restangular',
   'web-gui-app.shared.header',
@@ -11,14 +11,34 @@ var app = angular.module('web-gui-app', [
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:5000');
+  RestangularProvider.setBaseUrl('http://localhost:50000');
 })
 
-.component('mainContent', {
-  template: '<div class="container"><ng-outlet></ng-outlet></div>',
-  $routeConfig: [
-    { path: '/user/...', name: 'User', component: 'user', useAsDefault: true }
-  ]
-})
+.config(function($stateProvider, $urlRouterProvider) {
 
-.value('$routerRootComponent', 'mainContent');
+  $urlRouterProvider.otherwise("/home.welcome");
+
+  $stateProvider
+    .state('home', {
+      abstract: true,
+      views: {
+       "header": {
+         templateUrl: "/app/components/shared/header/header.html",
+         controller: "headerController"
+       },
+       "main": {
+         template: "<div class=\"container\"><div ui-view></div></div>"
+       }
+      }
+    })
+    .state('home.welcome', {
+      url: "/",
+      template: "Welcome bro!"
+    })
+    .state('home.newUser', {
+      url: "/user/new",
+      templateUrl: "/app/components/user/new.html",
+      controller: "userController"
+    });
+
+});
