@@ -5,6 +5,8 @@ public class ValidationFailure {
 	private CharSequence field;
 	private CharSequence message;
 
+	public ValidationFailure() {}
+	
 	public ValidationFailure(CharSequence field, CharSequence message) {
 		this.field = field;
 		this.message = message;

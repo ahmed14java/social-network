@@ -10,5 +10,4 @@ public interface UserService {
 	UserEntity findByUsernameAndPassword(final CharSequence username, 
 										 final CharSequence password) 
 										 throws UserNotFoundException;
-
 }
