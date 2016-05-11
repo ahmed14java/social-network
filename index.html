@@ -6,11 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
-
-  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,19 +14,25 @@
     <![endif]-->
 </head>
 <body ng-app="web-gui-app">
+  <header></header>
+  <main-content></main-content>
 
-  <div ui-view="header"></div>
-  <div ui-view="main"></div>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
 
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-messages/angular-messages.min.js"></script>
-  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
   <script src="node_modules/lodash/lodash.min.js"></script>
   <script src="node_modules/restangular/dist/restangular.min.js"></script>
 
   <script src="app/app.module.js"></script>
 
-  <script src="app/components/shared/header/headerController.js"></script>
+  <script src="app/components/shared/header/headerComponent.js"></script>
+
+  <script src="app/components/user/newUserComponent.js"></script>
   <script src="app/components/user/userController.js"></script>
 
 </body>

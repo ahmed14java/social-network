@@ -1,4 +1,4 @@
-var app = angular.module('web-gui-app.user', [])
+var app = angular.module('web-gui-app.user')
 
 .controller('userController', ["$scope", "Restangular", function ($scope, Restangular) {
 
