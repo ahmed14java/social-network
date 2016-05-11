@@ -14,8 +14,7 @@
     <![endif]-->
 </head>
 <body ng-app="web-gui-app">
-  <header></header>
-  <main-content></main-content>
+  <ng-outlet></ng-outlet>
 
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
@@ -30,10 +29,14 @@
 
   <script src="app/app.module.js"></script>
 
-  <script src="app/components/shared/header/headerComponent.js"></script>
+  <script src="app/components/shared/header/headerComponents.js"></script>
 
   <script src="app/components/user/newUserComponent.js"></script>
   <script src="app/components/user/userController.js"></script>
+
+  <script src="app/components/welcome/welcomeComponent.js"></script>
+
+  <script src="app/components/timeline/timelineComponent.js"></script>
 
 </body>
 </html>

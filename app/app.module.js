@@ -3,7 +3,9 @@ var app = angular.module('web-gui-app', [
   'ngMessages',
   'restangular',
   'web-gui-app.shared.header',
-  'web-gui-app.user'
+  'web-gui-app.welcome',
+  'web-gui-app.user',
+  'web-gui-app.timeline',
 ])
 
 .config(function($locationProvider) {
@@ -11,14 +13,15 @@ var app = angular.module('web-gui-app', [
 })
 
 .config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:5000');
+  RestangularProvider.setBaseUrl('http://localhost:50000');
 })
 
-.component('mainContent', {
-  template: '<div class="container"><ng-outlet></ng-outlet></div>',
+.component('webGuiComponent', {
+  template: '<ng-outlet></ng-outlet>',
   $routeConfig: [
-    { path: '/user/...', name: 'User', component: 'user', useAsDefault: true }
+    { path: '/welcome/...', name: 'Welcome', component: 'welcomeComponent', useAsDefault: true },
+    { path: '/timeline/...', name: 'Timeline', component: 'timelineComponent' }
   ]
 })
 
-.value('$routerRootComponent', 'mainContent');
+.value('$routerRootComponent', 'webGuiComponent');
