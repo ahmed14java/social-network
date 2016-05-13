@@ -1,6 +1,6 @@
 var app = angular.module('web-gui-app.user')
 
-.controller('userController', ["$scope", "Restangular", function ($scope, Restangular) {
+.controller('userController', ["$scope", "Restangular", "userService", function ($scope, Restangular, userService) {
 
   $scope.serviceFailures = new Array();
 
@@ -27,6 +27,8 @@ var app = angular.module('web-gui-app.user')
     console.log("POST /user");
     $scope.serviceFailures = new Array();
     baseUsers.post($scope.user).then(success, failure);
+
+    userService.storeUserInSession($scope.user);
   }
 
 }]);

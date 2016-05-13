@@ -9,8 +9,8 @@ var app = angular.module('web-gui-app.user', [])
 })
 
 .component('newUser', {
-  controller: 'userController',
-  templateUrl: '/app/components/user/new.html'
+  templateUrl: '/app/components/user/new.html',
+  controller: 'userController'
 })
 
 .component('listUser', {
