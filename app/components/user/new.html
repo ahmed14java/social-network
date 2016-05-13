@@ -19,7 +19,8 @@
                  ng-minlength="4"
                  ng-maxlength="16"
                  ng-trim
-                 required>
+                 required
+                 service-validated />
         </div>
         <span class="glyphicon"
               ng-class="{'glyphicon-remove form-control-feedback': !newUserForm.username.$valid && (newUserForm.$submitted || newUserForm.username.$touched),
@@ -29,6 +30,7 @@
           <span class="help-block" ng-message="required">Username cannot be blank</span>
           <span class="help-block" ng-message="minlength">Username must be at least 4-char long</span>
           <span class="help-block" ng-message="maxlength">Username cannot contain more than 16 chars</span>
+          <span class="help-block" ng-message="user.username.not.unique">Username {{user.username}} already in use</span>
         </div>
       </div>
     </div>
@@ -43,7 +45,8 @@
                  class="form-control"
                  placeholder="Email"
                  ng-model="user.email"
-                 required>
+                 required
+                 service-validated>
         </div>
         <span class="glyphicon"
            ng-class="{'glyphicon-remove form-control-feedback': !newUserForm.email.$valid && (newUserForm.$submitted || newUserForm.email.$touched),
@@ -52,6 +55,7 @@
         <div ng-messages="newUserForm.email.$error" role="alert" ng-if="newUserForm.email.$touched || newUserForm.$submitted">
           <span class="help-block" ng-message="required">Email cannot be blank</span>
           <span class="help-block" ng-message="email">Invalid email</span>
+          <span class="help-block" ng-message="user.email.not.unique">Email is already registered.</span>
         </div>
       </div>
     </div>
