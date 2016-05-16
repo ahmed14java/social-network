@@ -1,6 +1,6 @@
-var app = angular.module('web-gui-app.user')
+var app = angular.module('web-gui-app.user', [])
 
-.controller('userController', ["$scope", "Restangular", "userService", function ($scope, Restangular, userService) {
+.controller('userController', ["$scope", "$state", "Restangular", "userService", function ($scope, $state, Restangular, userService) {
 
   $scope.serviceFailures = new Array();
 
@@ -9,6 +9,7 @@ var app = angular.module('web-gui-app.user')
 
     var success = function() {
       console.log("[DONE] POST /User");
+      $state.go('webGuiApp.home.timeline');
     }
 
     var failure = function(response) {

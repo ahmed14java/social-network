@@ -1,7 +1,7 @@
-var app = angular.module('web-gui-app.shared.headers')
+var app = angular.module('web-gui-app.shared.headers', [])
 
-.controller('visitantHeaderController', ["$scope", "$location", function ($scope, $location) {
+.controller('visitantHeaderController', ["$scope", "$state", function ($scope, $state) {
 
-  $scope.goTo = function(dest) { console.log("GOING TO"); $location.href = dest; }
+  $scope.goTo = dest => { $state.go(dest); }
 
 }]);

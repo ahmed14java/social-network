@@ -1,28 +1,60 @@
 var app = angular.module('web-gui-app', [
-  'ngComponentRouter',
   'ngMessages',
   'restangular',
+  'ui.router',
   'web-gui-app.shared.headers',
-  'web-gui-app.shared.directives',
-  'web-gui-app.welcome',
-  'web-gui-app.user',
-  'web-gui-app.timeline',
+  'web-gui-app.user'
 ])
-
-.config(function($locationProvider) {
-  $locationProvider.html5Mode(true);
-})
 
 .config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:50000');
 })
 
-.component('webGuiComponent', {
-  template: '<ng-outlet></ng-outlet>',
-  $routeConfig: [
-    { path: '/welcome/...', name: 'Welcome', component: 'welcomeComponent', useAsDefault: true },
-    { path: '/timeline/...', name: 'Timeline', component: 'timelineComponent' }
-  ]
-})
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/welcome/");
 
-.value('$routerRootComponent', 'webGuiComponent');
+  $stateProvider
+    .state('webGuiApp', {
+      abstract: true,
+      template:
+      '<div ui-view="header"></div>' +
+      '<div class="container">' +
+        '<div ui-view="content"></div>' +
+      '</div>'
+    })
+    .state('webGuiApp.welcome', {
+      abstract: true,
+      url: '/welcome',
+      views: {
+        'header': {
+          templateUrl: '/app/components/shared/headers/vistantHeader.html',
+          controller: 'visitantHeaderController'
+        },
+        'content': { template: '<div ui-view></div>' }
+      }
+    })
+    .state('webGuiApp.welcome.index', {
+      url: '/',
+      template: '<h1>Welcome I guess</h1>'
+    })
+    .state('webGuiApp.welcome.newUser', {
+      url: '/newUser',
+      templateUrl: '/app/components/user/new.html',
+      controller: 'userController'
+    })
+    .state('webGuiApp.home', {
+      abstract: true,
+      url: '/home',
+      views: {
+        'header': {
+          templateUrl: '/app/components/shared/headers/userHeader.html',
+          controller: 'userHeaderController'
+        },
+        'content': { template: '<div ui-view></div>' }
+      }
+    })
+    .state('webGuiApp.home.timeline', {
+      url: '/',
+      templateUrl: '/app/components/timeline/index.html'
+    });
+});

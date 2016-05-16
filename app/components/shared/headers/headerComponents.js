@@ -2,6 +2,7 @@ var app = angular.module('web-gui-app.shared.headers', [])
 
 .component('visitantHeader', {
   templateUrl: '/app/components/shared/headers/vistantHeader.html',
+  bindings: { $router: '<' },
   controller: 'visitantHeaderController'
 })
 

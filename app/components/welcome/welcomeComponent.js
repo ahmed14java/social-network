@@ -1,7 +1,8 @@
 var app = angular.module('web-gui-app.welcome', [])
 
 .component('welcomeComponent', {
-  template: '<visitant-header></visitant-header><div class="container"><ng-outlet></ng-outlet></div>',
+  template: '<visitant-header $router="$$router"></visitant-header>'+
+            '<div class="container"><ng-outlet></ng-outlet></div>',
   $routeConfig: [
     { path: '/', name: 'Index', component: 'indexComponent', useAsDefault: true },
     { path: '/newUser', name: 'NewUser', component: 'newUser' }

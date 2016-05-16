@@ -14,7 +14,7 @@
     <![endif]-->
 </head>
 <body ng-app="web-gui-app">
-  <ng-outlet></ng-outlet>
+  <div ui-view></div>
 
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
@@ -24,25 +24,25 @@
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-messages/angular-messages.min.js"></script>
   <script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
-  <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="node_modules/lodash/lodash.min.js"></script>
   <script src="node_modules/restangular/dist/restangular.min.js"></script>
 
   <script src="app/app.module.js"></script>
 
-  <script src="app/components/shared/headers/headerComponents.js"></script>
+  <!-- <script src="app/components/shared/headers/headerComponents.js"></script> -->
   <script src="app/components/shared/headers/visitantHeaderController.js"></script>
   <script src="app/components/shared/headers/userHeaderController.js"></script>
 
-  <script src="app/components/shared/directives/serviceValidatedDirective.js"></script>
+  <!-- <script src="app/components/shared/directives/serviceValidatedDirective.js"></script> -->
 
-  <script src="app/components/user/newUserComponent.js"></script>
+  <!-- <script src="app/components/user/newUserComponent.js"></script> -->
   <script src="app/components/user/userController.js"></script>
   <script src="app/components/user/userService.js"></script>
 
-  <script src="app/components/welcome/welcomeComponent.js"></script>
+  <!-- <script src="app/components/welcome/welcomeComponent.js"></script> -->
 
-  <script src="app/components/timeline/timelineComponent.js"></script>
+  <!-- <script src="app/components/timeline/timelineComponent.js"></script> -->
 
 </body>
 </html>
