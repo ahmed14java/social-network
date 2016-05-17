@@ -9,6 +9,7 @@ var app = angular.module('web-gui-app.user', [])
 
     var success = function() {
       console.log("[DONE] POST /User");
+      userService.storeUserInSession($scope.user);
       $state.go('webGuiApp.home.timeline');
     }
 
@@ -28,8 +29,6 @@ var app = angular.module('web-gui-app.user', [])
     console.log("POST /user");
     $scope.serviceFailures = new Array();
     baseUsers.post($scope.user).then(success, failure);
-
-    userService.storeUserInSession($scope.user);
   }
 
 }]);

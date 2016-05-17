@@ -4,10 +4,7 @@ var app = angular.module('web-gui-app.user')
   var loggedUser;
 
   return {
-   storeUserInSession: function(user) {
-      console.log("storing user in session " + user.username);
-      loggedUser = user;
-    },
-    loggedUser: function() { console.log("returning " + user.username); return loggedUser; }
+   storeUserInSession: function(user) { loggedUser = user; },
+   loggedUser: function() { return loggedUser; }
   }
 })
