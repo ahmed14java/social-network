@@ -2,72 +2,22 @@ var app = angular.module('web-gui-app', [
   'ngMessages',
   'restangular',
   'ui.router',
+  'ui.bootstrap',
   'web-gui-app.shared.headers',
-  'web-gui-app.user'
+  'web-gui-app.shared.directives',
+  'web-gui-app.routes',
+  'web-gui-app.user',
+  'web-gui-app.post'
 ])
 
 .config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:50000');
 })
 
-app.run(function($rootScope, $state) {
+.run(function($rootScope, $state) {
   $rootScope.$state = $state;
   function message(to, toP, from, fromP) { return from.name  + angular.toJson(fromP) + " -> " +     to.name + angular.toJson(toP); }
   $rootScope.$on("$stateChangeStart", function(evt, to, toP, from, fromP) { console.log("Start:   " + message(to, toP, from, fromP)); });
   $rootScope.$on("$stateChangeSuccess", function(evt, to, toP, from, fromP) { console.log("Success: " + message(to, toP, from, fromP)); });
-  $rootScope.$on("$stateChangeError", function(evt, to, toP, from, fromP, err) {     console.log("Error:   " + message(to, toP, from, fromP), err); });
+  $rootScope.$on("$stateChangeError", function(evt, to, toP, from, fromP, err) { console.log("Error:   " + message(to, toP, from, fromP), err); });
 })
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/welcome/");
-
-  $stateProvider
-    .state('webGuiApp', {
-      abstract: true,
-      template:
-      '<div ui-view="header"></div>' +
-      '<div class="container">' +
-        '<div ui-view="content"></div>' +
-      '</div>'
-    })
-    .state('webGuiApp.welcome', {
-      abstract: true,
-      url: '/welcome',
-      views: {
-        'header': {
-          templateUrl: '/app/components/shared/headers/vistantHeader.html',
-          controller: 'visitantHeaderController'
-        },
-        'content': { template: '<div ui-view></div>' }
-      }
-    })
-    .state('webGuiApp.welcome.index', {
-      url: '/',
-      template: '<h1>Welcome I guess</h1>'
-    })
-    .state('webGuiApp.welcome.newUser', {
-      url: '/newUser',
-      templateUrl: '/app/components/user/new.html',
-      controller: 'userController'
-    })
-    .state('webGuiApp.home', {
-      abstract: true,
-      url: '/home',
-      views: {
-        'header': {
-          templateUrl: '/app/components/shared/headers/userHeader.html',
-          controller: 'userHeaderController',
-          resolve: {
-            currentUser: ["userService", function(userService) {
-              return userService.loggedUser();
-            }]
-          }
-        },
-        'content': { template: '<div ui-view></div>' }
-      }
-    })
-    .state('webGuiApp.home.timeline', {
-      url: '/',
-      templateUrl: '/app/components/timeline/index.html'
-    });
-});

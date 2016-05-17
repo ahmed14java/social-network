@@ -7,11 +7,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" ng-link="['/Welcome/Index']">Web GUI</a>
+        <a class="navbar-brand" ui-sref="home.index">Web GUI</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          Logged User = {{user.username}}
+          <li uib-dropdown>
+            <a uib-dropdown-toggle>{{user.username}}<span class="caret"></span></a>
+            <ul uib-dropdown-menu>
+              <li><a ui-sref="a"><i class="fa fa-home fa-fw"></i> Home</a></li>
+              <li><a ui-sref="b"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+              <li><a ui-sref="c"><i class="fa fa-cog fa-fw"></i> Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a ui-sref="d"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
