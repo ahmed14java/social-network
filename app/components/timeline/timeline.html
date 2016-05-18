@@ -1,8 +1,8 @@
-<div ng-repeat="post in posts">
+<div ng-repeat="post in posts | orderBy:'+':true">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body line-break">
           <h5><strong>@{{post.username}}</strong> - <small>18-May-2016 - 16:02</small></h5>
           <p>{{post.content}}</p>
         </div>
