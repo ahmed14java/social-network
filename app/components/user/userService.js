@@ -12,6 +12,14 @@ var app = angular.module('web-gui-app.user')
      console.log("POST /user -> " + user.username);
      baseUsers.post(user).then(fnSuccess, fnFailure);
      console.log("[DONE] POST /User -> " + user.username);
+   },
+   authenticate: (user, fnSuccess, fnFailure) => {
+     console.log("GET /user -> " + user.username);
+     baseUsers.one("", {
+       username: user.username,
+       password: user.password
+     }).then(fnSuccess, fnFailure);
+     console.log("[DONE] GET /user -> " + user.username);
    }
   }
 }])

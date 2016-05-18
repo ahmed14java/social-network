@@ -29,5 +29,10 @@ var app = angular.module('web-gui-app.routes', [])
       url: '/newUser',
       templateUrl: '/app/components/user/new.html',
       controller: 'userController'
+    })
+    .state('welcome.login', {
+      url: '/login',
+      templateUrl: '/app/components/user/login.html',
+      controller: 'userController'
     });
 });

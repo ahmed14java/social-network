@@ -18,9 +18,8 @@ var app = angular.module('web-gui-app.routes')
           resolve: {
             currentUser: ["userService", "$state", function(userService, $state) {
               user = userService.loggedUser();
-              // if (user == undefined) $state.go("welcome.index");
-              // else return user;
-              return user;
+              if (user == undefined) $state.go("welcome.index");
+              else return user;
             }]
           }
         },

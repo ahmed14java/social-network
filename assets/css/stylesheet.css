@@ -6,6 +6,10 @@
     vertical-align: middle;
 }
 
-.gap-row-below {
-  margin-bottom: 1em;
+.no-gap-row-below {
+  margin-bottom: 0;
+}
+
+.small-gap-row-below {
+  margin-bottom: 1px; 
 }
