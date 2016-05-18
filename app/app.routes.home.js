@@ -34,11 +34,15 @@ var app = angular.module('web-gui-app.routes')
           templateUrl: '/app/components/home/home.html'
         },
         'userSummary@home.index': {
-            templateUrl: '/app/components/user/userSummary.html'
+          templateUrl: '/app/components/user/userSummary.html'
+        },
+        'timeline@home.index': {
+          templateUrl: '/app/components/timeline/timeline.html',
+          controller: 'timelineController'
         },
         'quickPost@home.index': {
-            templateUrl: '/app/components/post/quickPost.html',
-            controller: 'postController'
+          templateUrl: '/app/components/post/quickPost.html',
+          controller: 'postController'
         }
       }
     });

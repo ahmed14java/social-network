@@ -1,17 +1,23 @@
 <div class="panel panel-primary">
   <div class="panel-heading">Say something...</div>
   <div class="panel-body">
-    <form class="form-horizontal">
+    <form name="quickPostForm" class="form-horizontal">
       <div class="form-group">
         <div class="col-md-12">
           <textarea class="form-control"
                     rows="5"
-                    placeholder="What are you up to?"></textarea>
+                    placeholder="What are you up to?"
+                    ng-model="post.content"
+                    required
+                    minlength="5"></textarea>
         </div>
       </div>
       <div class="form-group">
-        <div class="col-md-offset-10 col-md-2">
-            <button type="submit" class="btn btn-primary">Post</button>
+        <div class="col-md-12">
+            <button type="submit"
+                   class="btn btn-primary pull-right"
+             ng-disabled="quickPostForm.$invalid"
+                ng-click="save()">Post</button>
         </div>
       </div>
     </form>
