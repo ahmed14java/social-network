@@ -25,4 +25,9 @@ public class PostServiceImpl implements PostService {
 		postRepository.save(post);
 	}
 	
+	@Override
+	public Iterable<PostEntity> findAllPosts(CharSequence username) {
+		return postRepository.findByUsername(username);
+	}
+	
 }

@@ -45,6 +45,11 @@ public class PostResource {
 		return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET)
+	public Iterable<PostEntity> findAllPosts(@PathVariable String username) {
+		return postService.findAllPosts(username); 
+	}
+		
 	@ResponseBody
 	@ExceptionHandler(PostValidationException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)

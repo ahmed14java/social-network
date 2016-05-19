@@ -71,6 +71,24 @@ public class PostResourceIntegrationTest {
 				+ ", lobortis ac luctus ac, consequat ac metus. Nunc dapibus est nec dui elementum, eu accumsan dolor malesuada."
 				+ "Aenean id lacinia ipsum, eu varius nibh. Vestibulum dignissim, lorem quis gravida ultrices, lorem felis laoreet tortor, sit "
 				+ "amet consectetur augue arcu a lacus. Mauris rutrum nec justo eget imperdiet. Sed finibus vitae diam id elementum. Etiam quis "
+				+ "magna. Donec quis est ut diam accumsan aliquet. Quisque et eleifend justo. Integer hendrerit sollicitudin "
+				+ "ex eu vulputate. Cras a eleifend felis. In finibus lacus sed lacinia mollis. "
+				+ "Curabitur feugiat nisi lacus, quis congue ligula consectetur quis. Nullam tempus risus quis congue tempus. Nullam nisi eros"
+				+ ", lobortis ac luctus ac, consequat ac metus. Nunc dapibus est nec dui elementum, eu accumsan dolor malesuada."
+				+ "Aenean id lacinia ipsum, eu varius nibh. Vestibulum dignissim, lorem quis gravida ultrices, lorem felis laoreet tortor, sit "
+				+ "amet consectetur augue arcu a lacus. Mauris rutrum nec justo eget imperdiet. Sed finibus vitae diam id elementum. Etiam quis "
+				+ "magna. Donec quis est ut diam accumsan aliquet. Quisque et eleifend justo. Integer hendrerit sollicitudin "
+				+ "ex eu vulputate. Cras a eleifend felis. In finibus lacus sed lacinia mollis. "
+				+ "Curabitur feugiat nisi lacus, quis congue ligula consectetur quis. Nullam tempus risus quis congue tempus. Nullam nisi eros"
+				+ ", lobortis ac luctus ac, consequat ac metus. Nunc dapibus est nec dui elementum, eu accumsan dolor malesuada."
+				+ "Aenean id lacinia ipsum, eu varius nibh. Vestibulum dignissim, lorem quis gravida ultrices, lorem felis laoreet tortor, sit "
+				+ "amet consectetur augue arcu a lacus. Mauris rutrum nec justo eget imperdiet. Sed finibus vitae diam id elementum. Etiam quis "
+				+ "magna. Donec quis est ut diam accumsan aliquet. Quisque et eleifend justo. Integer hendrerit sollicitudin "
+				+ "ex eu vulputate. Cras a eleifend felis. In finibus lacus sed lacinia mollis. "
+				+ "Curabitur feugiat nisi lacus, quis congue ligula consectetur quis. Nullam tempus risus quis congue tempus. Nullam nisi eros"
+				+ ", lobortis ac luctus ac, consequat ac metus. Nunc dapibus est nec dui elementum, eu accumsan dolor malesuada."
+				+ "Aenean id lacinia ipsum, eu varius nibh. Vestibulum dignissim, lorem quis gravida ultrices, lorem felis laoreet tortor, sit "
+				+ "amet consectetur augue arcu a lacus. Mauris rutrum nec justo eget imperdiet. Sed finibus vitae diam id elementum. Etiam quis "
 				+ "fringilla massa, in porta metus. Nulla tincidunt maximus fringilla. Proin egestas dapibus lacus eget dignissim. Duis mauris sapien, "
 				+ "ullamcorper non pharetra vel, sollicitudin id est. Fusce sed sapien ut arcu laoreet porta ut sed urna. Ut non commodo odio. Suspendisse "
 				+ "dignissim, urna in efficitur feugiat, lacus erat rhoncus leo, a fermentum lectus odio a metus. Curabitur pharetra facilisis ultricies. Curabitur "
@@ -78,7 +96,9 @@ public class PostResourceIntegrationTest {
 		postToBeCreated.setUsername("frodo");
 		
 		// When...
-		final ResponseEntity<?> serviceResponse = postPostEntity(postToBeCreated);
+		ResponseEntity<?> serviceResponse = postPostEntity(postToBeCreated);
+		serviceResponse = postPostEntity(postToBeCreated);
+		serviceResponse = postPostEntity(postToBeCreated);
 		
 		// Then...
 		assertThat(serviceResponse.getStatusCode(), is(HttpStatus.OK));
