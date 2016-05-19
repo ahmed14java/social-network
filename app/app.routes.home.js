@@ -17,9 +17,12 @@ var app = angular.module('web-gui-app.routes')
           controller: 'userHeaderController',
           resolve: {
             currentUser: ["userService", "$state", function(userService, $state) {
-              user = userService.loggedUser();
-              if (user == undefined) $state.go("welcome.index");
-              else return user;
+              var user = {};
+              // user = userService.loggedUser();
+              // if (user == undefined) $state.go("welcome.index");
+              // else return user;
+              user.username = "claudinei";
+              return user;
             }]
           }
         },

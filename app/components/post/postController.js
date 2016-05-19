@@ -2,13 +2,15 @@ var app = angular.module('web-gui-app.post', [])
 
 .controller('postController', ["$scope", "timelineService", "userService", function ($scope, timelineService, userService) {
 
-  $scope.save = () => {
+  $scope.save = (postToBeSaved) => {
     var post = {};
 
-    post.content = $scope.post.content;
+    angular.copy(postToBeSaved, post);
     post.username = userService.loggedUser().username;
 
     timelineService.push(post);
+
+    angular.copy({}, postToBeSaved);
   }
 
 }]);

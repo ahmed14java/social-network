@@ -2,6 +2,10 @@
    word-break:break-all
 }
 
+.non-resizable  {
+resize: none;
+}
+
 .table tbody>tr>td.vert-align{
     vertical-align: middle;
 }
@@ -11,5 +15,5 @@
 }
 
 .small-gap-row-below {
-  margin-bottom: 1px; 
+  margin-bottom: 1px;
 }

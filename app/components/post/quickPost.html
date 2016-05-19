@@ -1,25 +1,37 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">Say something...</div>
-  <div class="panel-body">
-    <form name="quickPostForm" class="form-horizontal">
-      <div class="form-group">
-        <div class="col-md-12">
-          <textarea class="form-control"
-                    rows="5"
-                    placeholder="What are you up to?"
-                    ng-model="post.content"
-                    required
-                    minlength="5"></textarea>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-12">
-            <button type="submit"
-                   class="btn btn-primary pull-right"
-             ng-disabled="quickPostForm.$invalid"
-                ng-click="save()">Post</button>
-        </div>
-      </div>
-    </form>
+<div class="row">
+  <div class="col-md-12">
+    <uib-accordion>
+      <uib-accordion-group panel-class="panel-primary">
+        <uib-accordion-heading>Say something...</uib-accordion-heading>
+        <form name="quickPostForm" class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-12">
+              <input class="form-control"
+                placeholder="Title"
+                   ng-model="post.title"
+                  maxlength="150"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <textarea class="form-control non-resizable"
+                        rows="5"
+                        placeholder="What are you up to?"
+                        ng-model="post.content"
+                        required
+                        minlength="5"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit"
+                       class="btn btn-primary pull-right"
+                 ng-disabled="quickPostForm.$invalid"
+                    ng-click="save(post)">Post</button>
+            </div>
+          </div>
+        </form>
+      </uib-accordion-group>
+    </uib-accordion>
   </div>
 </div>

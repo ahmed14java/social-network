@@ -15,7 +15,7 @@ var app = angular.module('web-gui-app.user')
    },
    authenticate: (user, fnSuccess, fnFailure) => {
      console.log("GET /user -> " + user.username);
-     baseUsers.one("", {
+     baseUsers.get("", {
        username: user.username,
        password: user.password
      }).then(fnSuccess, fnFailure);

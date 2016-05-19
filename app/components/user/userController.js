@@ -2,12 +2,12 @@ var app = angular.module('web-gui-app.user', [])
 
 .controller('userController', ["$scope", "$state", "userService", function ($scope, $state, userService) {
 
-    $scope.save = function() {
+    var fnAuthSuccess = function() {
+      userService.storeUserInSession($scope.user);
+      $state.go('home.index');
+    }
 
-      var fnSuccess = function() {
-        userService.storeUserInSession($scope.user);
-        $state.go('home.index');
-      }
+    $scope.save = function() {
 
       var fnFailure = function(response) {
         console.log("[FAILED] POST /user - [CODE] " + response.status, response.status);
@@ -19,8 +19,16 @@ var app = angular.module('web-gui-app.user', [])
           $scope.newUserForm[field].$setValidity(message, false);
         }
       }
+      
+      userService.save($scope.user, fnAuthSuccess, fnFailure);
+    }
 
-      userService.save($scope.user, fnSuccess, fnFailure);
+    $scope.login = function() {
+      var fnFailure = function(response) {
+        console.log("[FAILED] POST /user - [CODE] " + response.status);
+      }
+
+      userService.authenticate($scope.user, fnAuthSuccess, fnFailure);
     }
 
 }]);
