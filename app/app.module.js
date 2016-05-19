@@ -4,16 +4,13 @@ var app = angular.module('web-gui-app', [
   'ui.router',
   'ui.bootstrap',
   'web-gui-app.shared.headers',
+  'web-gui-app.shared.restangular',
   'web-gui-app.shared.directives',
   'web-gui-app.routes',
   'web-gui-app.user',
   'web-gui-app.post',
   'web-gui-app.timeline'
 ])
-
-.config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:50000');
-})
 
 .run(function($rootScope, $state) {
   $rootScope.$state = $state;

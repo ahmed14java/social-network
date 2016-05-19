@@ -1,8 +1,8 @@
 var app = angular.module('web-gui-app.user')
 
-.factory('userService', ["Restangular", function(Restangular) {
+.factory('userService', ["userServiceClient", function(userServiceClient) {
 
-  var baseUsers = Restangular.all('user');
+  var baseUsers = userServiceClient.all('user');
   var loggedUser;
 
   return {
