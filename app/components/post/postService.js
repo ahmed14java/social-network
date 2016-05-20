@@ -2,9 +2,12 @@ var app = angular.module('web-gui-app.post')
 
 .factory('postService', ["postServiceClient", function(postServiceClient) {
 
-  var basePost = postServiceClient.all('user');
-
   return {
-   storeUserInSession: user => { loggedUser = user; }
+   save: (post, fnSuccess, fnFailure) => {
+     postServiceClient
+      .one('user', post.username)
+      .post('post', post)
+      .then(fnSuccess, fnFailure);
+   }
   }
 }])
