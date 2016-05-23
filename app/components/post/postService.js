@@ -4,10 +4,16 @@ var app = angular.module('web-gui-app.post')
 
   return {
    save: (post, fnSuccess, fnFailure) => {
-     postServiceClient
+      postServiceClient
       .one('user', post.username)
       .post('post', post)
       .then(fnSuccess, fnFailure);
-   }
+   },
+   retrievePostsOf: (username, fnSuccess, fnFailure) => {
+     return postServiceClient
+              .one('user', username)
+              .getList('post')
+              .then(fnSuccess, fnFailure);
   }
+ }
 }])

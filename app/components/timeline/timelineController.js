@@ -1,7 +1,7 @@
 var app = angular.module('web-gui-app.timeline', [])
 
-.controller('timelineController', ["$scope", "timelineService", function ($scope, timelineService) {
+.controller('timelineController', ["$scope", "posts", function ($scope, posts) {
 
-  $scope.posts = timelineService.posts();
+  $scope.posts = posts;
 
 }]);

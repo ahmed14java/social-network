@@ -19,7 +19,7 @@ var app = angular.module('web-gui-app.user', [])
           $scope.newUserForm[field].$setValidity(message, false);
         }
       }
-      
+
       userService.save($scope.user, fnAuthSuccess, fnFailure);
     }
 

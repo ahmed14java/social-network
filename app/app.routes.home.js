@@ -14,16 +14,16 @@ var app = angular.module('web-gui-app.routes')
         },
         'header@home': {
           templateUrl: '/app/components/shared/headers/userHeader.html',
-          controller: 'userHeaderController',
-          resolve: {
-            currentUser: ["userService", "$state", function(userService, $state) {
-              user = userService.loggedUser();
-              if (user == undefined) $state.go("welcome.index");
-              else return user;
-            }]
-          }
+          controller: 'userHeaderController'
         },
         'content@home': { template: '<div ui-view></div>' }
+      },
+      resolve: {
+        currentUser: ["userService", "$state", function(userService, $state) {
+          user = userService.loggedUser();
+          if (user == undefined) $state.go("welcome.index");
+          else return user;
+        }]
       }
     })
     .state('home.index', {
@@ -37,11 +37,38 @@ var app = angular.module('web-gui-app.routes')
         },
         'timeline@home.index': {
           templateUrl: '/app/components/timeline/timeline.html',
-          controller: 'timelineController'
+          controller: 'timelineController',
+          resolve: {
+            posts: ["timelineService", function (timelineService) {
+              return timelineService.posts();
+            }]
+          }
         },
         'quickPost@home.index': {
           templateUrl: '/app/components/post/quickPost.html',
           controller: 'postController'
+        }
+      }
+    })
+    .state('home.profile', {
+      url: '/{profileUsername}',
+      views: {
+        '': {
+          templateUrl: '/app/components/user/profile/profile.html',
+          controller: 'profileController',
+        },
+        'timeline@home.profile': {
+          templateUrl: '/app/components/timeline/timeline.html',
+          controller: 'timelineController',
+          resolve: {
+            posts: ["$stateParams", "postService", function($stateParams, postService) {
+
+              var fnSuccess = (retrievedPosts) => { console.log(retrievedPosts); return retrievedPosts; }
+              var fnFailure = () => { console.log("it didn't work!"); }
+
+              return postService.retrievePostsOf($stateParams.profileUsername, fnSuccess, fnFailure);
+            }]
+          }
         }
       }
     });

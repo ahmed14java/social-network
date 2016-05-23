@@ -8,6 +8,7 @@ var app = angular.module('web-gui-app', [
   'web-gui-app.shared.directives',
   'web-gui-app.routes',
   'web-gui-app.user',
+  'web-gui-app.user.profile',
   'web-gui-app.post',
   'web-gui-app.timeline'
 ])
