@@ -17,7 +17,7 @@ import javax.persistence.TableGenerator;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.web.util.UriUtils;
+import org.springframework.util.StringUtils;
 
 @Entity
 @Table(name = "POST")
@@ -107,16 +107,27 @@ public class PostEntity {
 	
 	protected void generateKey() {
 		try {
-			String normalizedKey = Normalizer.normalize(getTitle(), Normalizer.Form.NFD);
-			normalizedKey = normalizedKey.replaceAll("\\s+", "_");
-			final String key = UriUtils.encodePath(getId() + "_" + normalizedKey, "UTF-8");
-			setKey(key);			
+			final StringBuilder sb = new StringBuilder();
+			sb.append(getId());
+
+			if (!StringUtils.isEmpty(getTitle())) {
+				sb.append("_").append(normalizeTitle());
+			}
+				
+			setKey(sb.toString());			
 		} catch (Exception e) {
 			throw new RuntimeException("[Unexpected] Cannot encode this title", e);
 		}
 	}
-	
+
 	protected void updateCreationDate() {
 		setCreationDate(new Date());
 	}
+	
+	private String normalizeTitle() {
+		String normalizedTitle = Normalizer.normalize(getTitle(), Normalizer.Form.NFD);
+		normalizedTitle = normalizedTitle.replaceAll("\\s+", "_");
+		return normalizedTitle;
+	}
+
 }
