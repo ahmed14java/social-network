@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <form name="newUserForm" class="form-horizontal" ng-submit="save()" novalidate>
-    <div class="form-group"
+    <div class="form-group no-gap-row-below"
       ng-class="{'has-error has-feedback': !newUserForm.username.$valid && (newUserForm.$submitted || newUserForm.username.$touched),
                  'has-success has-feedback': newUserForm.username.$valid && newUserForm.username.$touched}">
       <div class="col-md-offset-4 col-md-4">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="form-group"
+    <div class="form-group no-gap-row-below"
       ng-class="{'has-error has-feedback': !newUserForm.email.$valid && (newUserForm.$submitted || newUserForm.email.$touched),
                  'has-success has-feedback': newUserForm.email.$valid && newUserForm.email.$touched}">
       <div class="col-md-offset-4 col-md-4">
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="form-group"
+    <div class="form-group no-gap-row-below"
       ng-class="{'has-error has-feedback': !newUserForm.password.$valid && (newUserForm.$submitted || newUserForm.password.$touched),
                  'has-success has-feedback': newUserForm.password.$valid && newUserForm.password.$touched}">
       <div class="col-md-offset-4 col-md-4">

@@ -1,5 +1,6 @@
 var app = angular.module('web-gui-app', [
   'ngMessages',
+  'froala',
   'restangular',
   'ui.router',
   'ui.bootstrap',

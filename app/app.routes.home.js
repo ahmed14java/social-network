@@ -63,7 +63,7 @@ var app = angular.module('web-gui-app.routes')
           resolve: {
             posts: ["$stateParams", "postService", function($stateParams, postService) {
 
-              var fnSuccess = (retrievedPosts) => { console.log(retrievedPosts); return retrievedPosts; }
+              var fnSuccess = (retrievedPosts) => { return retrievedPosts; }
               var fnFailure = () => { console.log("it didn't work!"); }
 
               return postService.retrievePostsOf($stateParams.profileUsername, fnSuccess, fnFailure);
