@@ -46,7 +46,7 @@ public class PostResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Iterable<PostEntity> findAllPosts(@PathVariable String username) {
+	public Iterable<PostEntity> findAllPosts(@PathVariable String username) {	
 		return postService.findAllPosts(username); 
 	}
 		

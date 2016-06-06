@@ -45,7 +45,7 @@ public class PostResourceIntegrationTest {
 				errorMessage.equalsIgnoreCase(validationFailure.getMessage().toString())) 
 				return;
 		}
-		fail("Validation for [" + field + "] with message + [" + errorMessage + "] is not present");
+		fail("Validation for [" + field + "] with message [" + errorMessage + "] is not present");
 	}
 	
 	private RestTemplate restTemplate;
