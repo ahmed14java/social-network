@@ -1,7 +1,7 @@
 var app = angular.module('web-gui-app.user.profile', [])
 
-.controller('profileController', ["$stateParams", "$scope", function ($stateParams, $scope) {
+.controller('profileController', ["user", "$scope", function (user, $scope) {
 
-  $scope.profileUsername = $stateParams.profileUsername;
+  $scope.user = user;
 
 }]);

@@ -1,7 +1,9 @@
 var app = angular.module('web-gui-app.post', [])
 
-.controller('postController', ["$scope", "timelineService", "userService", "postService",
-  function ($scope, timelineService, userService, postService) {
+.controller('postController', ["$scope", "timelineService", "currentUser", "postService",
+  function ($scope, timelineService, currentUser, postService) {
+
+   $scope.user = currentUser;
 
    $scope.froalaOptions = {
         imageUploadParam: 'image',
@@ -20,10 +22,12 @@ var app = angular.module('web-gui-app.post', [])
    }
 
   $scope.save = (post) => {
+    console.log(currentUser);
+
     var postToBeSaved = {};
 
     angular.copy(post, postToBeSaved);
-    postToBeSaved.username = userService.loggedUser().username;
+    postToBeSaved.username = currentUser.username;
 
     var fnSuccess = () => { timelineService.push(postToBeSaved); }
 

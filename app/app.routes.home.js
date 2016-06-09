@@ -8,10 +8,10 @@ var app = angular.module('web-gui-app.routes')
         '': {
           template:
             '<div class="bg-background">' +
-            '<div ui-view="header"></div>' +
-            '<div class="container">' +
-              '<div ui-view="content"></div>' +
-            '</div>' +
+            ' <div ui-view="header"></div>' +
+            ' <div class="container">' +
+            '  <div ui-view="content"></div>' +
+            ' </div>' +
             '</div>'
         },
         'header@home': {
@@ -53,11 +53,20 @@ var app = angular.module('web-gui-app.routes')
       }
     })
     .state('home.profile', {
-      url: '/{profileUsername}',
+      url: '/{username}',
       views: {
         '': {
           templateUrl: '/app/components/user/profile/profile.html',
           controller: 'profileController',
+          resolve: {
+            user: ["$stateParams", "userService", function($stateParams, userService) {
+
+              var fnSuccess = (response) => { return response; }
+              var fnFailure = (response) => { console.log(response); }
+
+              return userService.findByUsername($stateParams.username, fnSuccess, fnFailure);
+            }]
+          }
         },
         'timeline@home.profile': {
           templateUrl: '/app/components/timeline/timeline.html',
@@ -68,7 +77,7 @@ var app = angular.module('web-gui-app.routes')
               var fnSuccess = (retrievedPosts) => { return retrievedPosts; }
               var fnFailure = () => { console.log("it didn't work!"); }
 
-              return postService.retrievePostsOf($stateParams.profileUsername, fnSuccess, fnFailure);
+              return postService.retrievePostsOf($stateParams.username, fnSuccess, fnFailure);
             }]
           }
         }

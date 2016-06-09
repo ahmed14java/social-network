@@ -20,8 +20,8 @@ var app = angular.module('web-gui-app.user', [])
       });
     }
 
-    var fnAuthSuccess = function() {
-      userService.storeUserInSession($scope.user);
+    var fnAuthSuccess = function(response) {
+      userService.storeUserInSession(response);
       $state.go('home.index');
     }
 
