@@ -2,18 +2,17 @@
    word-break:break-all
 }
 
-.non-resizable  {
-resize: none;
-}
-
-.table tbody>tr>td.vert-align{
-    vertical-align: middle;
-}
-
 .no-gap-row-below {
   margin-bottom: 0;
 }
 
 .small-gap-row-below {
   margin-bottom: 1px;
+}
+
+.bg-background {
+  display:block;
+  overflow:auto;
+  height : 100vh;
+  background-color: #FAFAFA;
 }

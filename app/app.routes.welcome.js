@@ -9,9 +9,11 @@ var app = angular.module('web-gui-app.routes', [])
       views: {
         '': {
           template:
+            '<div class="bg-background">' +
             '<div ui-view="header"></div>' +
             '<div class="container">' +
               '<div ui-view="content"></div>' +
+            '</div>' +
             '</div>'
         },
         'header@welcome': {

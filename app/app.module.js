@@ -4,6 +4,7 @@ var app = angular.module('web-gui-app', [
   'restangular',
   'ui.router',
   'ui.bootstrap',
+  'ngFileUpload',
   'web-gui-app.shared.headers',
   'web-gui-app.shared.restangular',
   'web-gui-app.shared.directives',

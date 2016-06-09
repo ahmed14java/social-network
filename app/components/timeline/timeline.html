@@ -5,6 +5,7 @@
         <div class="panel-body line-break">
           <h5><strong>@{{post.username}}</strong> - <small>18-May-2016 - 16:02</small></h5>
           <p class="lead" ng-if="post.title != undefined">{{post.title}}</p>
+          <hr ng-if="post.title != undefined"></hr>
           <p froala-view="post.content"></p>
         </div>
       </div>

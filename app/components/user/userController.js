@@ -1,14 +1,31 @@
 var app = angular.module('web-gui-app.user', [])
 
-.controller('userController', ["$scope", "$state", "userService", function ($scope, $state, userService) {
+.controller('userController', ["$scope", "$state", "userService", "Upload", function ($scope, $state, userService, Upload) {
+
+    $scope.save = function() {
+      if ($scope.profilePic != undefined) uploadImageAndSaveUser();
+      else saveUser();
+    }
+
+    function uploadImageAndSaveUser() {
+      $scope.profilePic.upload = Upload.upload({
+        url: 'http://localhost:50003/image',
+        data: {image: $scope.profilePic},
+      }).then(function (resp) {
+          console.log('Img Key = ' + resp.data['key']);
+          $scope.user.profilePicKey = resp.data['key'];
+          saveUser();
+      }, function (resp) {
+          console.log('Error status: ' + resp.status);
+      });
+    }
 
     var fnAuthSuccess = function() {
       userService.storeUserInSession($scope.user);
       $state.go('home.index');
     }
 
-    $scope.save = function() {
-
+    function saveUser() {
       var fnFailure = function(response) {
         console.log("[FAILED] POST /user - [CODE] " + response.status, response.status);
 

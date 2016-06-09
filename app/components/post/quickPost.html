@@ -24,13 +24,8 @@
           </div>
           <div class="form-group">
             <div class="col-md-12">
-              <!-- <div text-angular ng-model="post.content"></div>
-              <trix-editor ng-model="post.content"
-                              class="trix-content"
-                trix-attachment-add="trixAttachmentAdd(e, editor);"
-                              angular-trix></trix-editor>
-              -->
-              <textarea froala ng-model="post.content"></textarea>
+              <textarea froala="froalaOptions"
+                      ng-model="post.content"></textarea>
             </div>
           </div>
           <div class="form-group">
