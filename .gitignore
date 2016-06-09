@@ -1,0 +1,11 @@
+# Ignore Eclipse stuff
+
+.classpath
+.project
+.settings/
+.mvn/
+
+#Ignore Maven Stuff
+dependency-reduced-pom.xml
+target/
+bin/
