@@ -46,7 +46,7 @@ public class UserResource {
 							.buildAndExpand(user.getUsername())
 							.toUri());
 		
-		return new ResponseEntity<>(null, httpHeaders, HttpStatus.OK);
+		return new ResponseEntity<>(user, httpHeaders, HttpStatus.OK);
 	}
 	
 	@RequestMapping(path = "/{username}", method = RequestMethod.GET)
