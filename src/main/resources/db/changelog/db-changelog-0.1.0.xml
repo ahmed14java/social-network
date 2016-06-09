@@ -32,4 +32,10 @@
 		</createTable>
 	</changeSet>
 
+	<changeSet id="3" author="claudinei">
+		<addColumn tableName="USER">
+	       	<column name="PROFILE_PIC_KEY" type="varchar(255)"/>
+	   	</addColumn>
+	</changeSet>
+
 </databaseChangeLog>

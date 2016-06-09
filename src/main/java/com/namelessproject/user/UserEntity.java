@@ -38,15 +38,18 @@ public class UserEntity {
 	private String email;
 	@NotBlank(message = "user.password.cannot.be.empty")
 	private String password;
+	@Column(name="PROFILE_PIC_KEY")
+	private String profilePicKey;
 	
 	public UserEntity() {
 	}
 
-	public UserEntity(Long id, String username, String email, String password) {
+	public UserEntity(Long id, String username, String email, String password, String profilePicKey) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.profilePicKey = profilePicKey;
 	}
 
 	public Long getId() {
@@ -79,5 +82,13 @@ public class UserEntity {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getProfilePicKey() {
+		return profilePicKey;
+	}
+	
+	public void setProfilePicKey(String profilePicKey) {
+		this.profilePicKey = profilePicKey;
 	}
 }
