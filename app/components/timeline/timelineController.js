@@ -1,8 +1,8 @@
 var app = angular.module('web-gui-app.timeline', [])
 
-.controller('timelineController', ["$scope", "posts", "currentUser", function ($scope, posts, currentUser) {
+.controller('timelineController', ["$scope", "posts", "user", function ($scope, posts, user) {
 
   $scope.posts = posts;
-  $scope.user = currentUser;
+  $scope.user = user;
 
 }]);

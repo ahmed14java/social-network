@@ -21,7 +21,7 @@ var app = angular.module('web-gui-app.routes')
         'content@home': { template: '<div ui-view></div>' }
       },
       resolve: {
-        currentUser: ["userService", "$state", function(userService, $state) {
+        user: ["userService", "$state", function(userService, $state) {
           user = userService.loggedUser();
           if (user == undefined) $state.go("welcome.index");
           else return user;
@@ -57,16 +57,7 @@ var app = angular.module('web-gui-app.routes')
       views: {
         '': {
           templateUrl: '/app/components/user/profile/profile.html',
-          controller: 'profileController',
-          resolve: {
-            user: ["$stateParams", "userService", function($stateParams, userService) {
-
-              var fnSuccess = (response) => { return response; }
-              var fnFailure = (response) => { console.log(response); }
-
-              return userService.findByUsername($stateParams.username, fnSuccess, fnFailure);
-            }]
-          }
+          controller: 'profileController'
         },
         'timeline@home.profile': {
           templateUrl: '/app/components/timeline/timeline.html',
@@ -81,6 +72,15 @@ var app = angular.module('web-gui-app.routes')
             }]
           }
         }
+      },
+      resolve: {
+        user: ["$stateParams", "userService", function($stateParams, userService) {
+
+          var fnSuccess = (response) => { return response; }
+          var fnFailure = (response) => { console.log(response); }
+
+          return userService.findByUsername($stateParams.username, fnSuccess, fnFailure);
+        }]
       }
     });
 });

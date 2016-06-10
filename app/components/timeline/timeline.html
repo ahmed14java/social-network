@@ -7,16 +7,19 @@
         </div>
         <div class="panel-body line-break">
           <div class="row small-gap-row-below">
-            <div class="col-md-12">
-              <dl class="no-gap-row-below">
-                <dt>@{{post.username}}</dt>
-                <dd><small>18-May-2016 - 16:02</small></dd>
-              </dl>
+            <div class="col-xs-3 col-sm-1">
+              <img src='http://localhost:50003/image/{{user.profilePicKey}}'
+                   alt="Profile Picture" class="img-responsive img-rounded"
+                   style="max-height: 45px; max-width: 45px;">
+            </div>
+            <div class="col-xs-9 col-sm-11">
+                <span><strong>@{{post.username}}</strong></span>
+                <small class="pull-right">18-May-2016 - 16:02</small>
               <hr class="small-margin-top"></hr>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-xs-offset-3 col-sm-offset-1 col-xs-9 col-sm-10">
               <p froala-view="post.content"></p>
             </div>
           </div>
