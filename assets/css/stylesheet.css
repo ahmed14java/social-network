@@ -1,0 +1,22 @@
+.line-break  {
+   word-break:break-all
+}
+
+.no-gap-row-below {
+  margin-bottom: 0;
+}
+
+.small-gap-row-below {
+  margin-bottom: 1px;
+}
+
+.small-margin-top {
+  margin-top: 1px;
+}
+
+.bg-background {
+  display:block;
+  overflow:auto;
+  height : 100vh;
+  background-color: #FAFAFA;
+}

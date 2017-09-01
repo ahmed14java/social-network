@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home.index">Web GUI</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li uib-dropdown>
+            <a uib-dropdown-toggle>{{user.username}}<span class="caret"></span></a>
+            <ul uib-dropdown-menu>
+              <li><a ui-sref="home.index"><i class="fa fa-home fa-fw"></i> Home</a></li>
+              <li><a ui-sref="home.profile({username: user.username})"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+              <li><a ui-sref="c"><i class="fa fa-cog fa-fw"></i> Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a ui-sref="d"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

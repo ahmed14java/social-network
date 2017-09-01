@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="well well-sm" style="background: url('http://localhost:50003/image/2521c48b147445729789e7f506a06535') repeat-x top left; ">
+      <img src='http://localhost:50003/image/{{user.profilePicKey}}'
+           alt="Profile Picture" class="img-responsive img-rounded center-block"
+           style="max-height: 140px; max-width: 140px;">
+      <h4 class="text-center">@{{user.username}}</h4>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div ui-view="timeline"></div>
+  </div>
+</div>

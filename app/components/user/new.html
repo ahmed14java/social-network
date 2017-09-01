@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-md-offset-5 col-md-2">
+    <h1>New User</h1>
+  </div>
+</div>
+<div class="row">
+  <form name="newUserForm" class="form-horizontal" ng-submit="save()" novalidate>
+    <div class="form-group"
+      ng-class="{'has-error has-feedback': !newUserForm.username.$valid && (newUserForm.$submitted || newUserForm.username.$touched),
+                 'has-success has-feedback': newUserForm.username.$valid && newUserForm.username.$touched}">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
+          <input name="username"
+                 type="text"
+                 class="form-control"
+                 placeholder="Username"
+                 ng-model="user.username"
+                 ng-minlength="4"
+                 ng-maxlength="16"
+                 ng-trim
+                 required
+                 service-validated />
+        </div>
+        <span class="glyphicon"
+              ng-class="{'glyphicon-remove form-control-feedback': !newUserForm.username.$valid && (newUserForm.$submitted || newUserForm.username.$touched),
+                         'glyphicon-ok form-control-feedback': newUserForm.username.$valid && (newUserForm.$submitted || newUserForm.username.$touched)}"
+              ng-if="newUserForm.$submitted || newUserForm.username.$touched">
+        </span>
+        <div ng-messages="newUserForm.username.$error" role="alert" ng-if="newUserForm.username.$touched || newUserForm.$submitted">
+          <span class="help-block" ng-message="required">Username cannot be blank</span>
+          <span class="help-block" ng-message="minlength">Username must be at least 4-char long</span>
+          <span class="help-block" ng-message="maxlength">Username cannot contain more than 16 chars</span>
+          <span class="help-block" ng-message="user.username.not.unique">Username {{user.username}} already in use</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"
+      ng-class="{'has-error has-feedback': !newUserForm.email.$valid && (newUserForm.$submitted || newUserForm.email.$touched),
+                 'has-success has-feedback': newUserForm.email.$valid && newUserForm.email.$touched}">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+          <input name="email"
+                 type="email"
+                 class="form-control"
+                 placeholder="Email"
+                 ng-model="user.email"
+                 required
+                 service-validated>
+        </div>
+        <span class="glyphicon"
+           ng-class="{'glyphicon-remove form-control-feedback': !newUserForm.email.$valid && (newUserForm.$submitted || newUserForm.email.$touched),
+                      'glyphicon-ok form-control-feedback': newUserForm.email.$valid && (newUserForm.$submitted || newUserForm.email.$touched)}"
+           ng-if="newUserForm.$submitted || newUserForm.email.$touched">
+        </span>
+        <div ng-messages="newUserForm.email.$error" role="alert" ng-if="newUserForm.email.$touched || newUserForm.$submitted">
+          <span class="help-block" ng-message="required">Email cannot be blank</span>
+          <span class="help-block" ng-message="email">Invalid email</span>
+          <span class="help-block" ng-message="user.email.not.unique">Email is already registered.</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"
+      ng-class="{'has-error has-feedback': !newUserForm.password.$valid && (newUserForm.$submitted || newUserForm.password.$touched),
+                 'has-success has-feedback': newUserForm.password.$valid && newUserForm.password.$touched}">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+          <input name="password"
+                 type="password"
+                 class="form-control"
+                 placeholder="Password"
+                 ng-model="user.password"
+                 required>
+        </div>
+        <span class="glyphicon"
+           ng-class="{'glyphicon-remove form-control-feedback': !newUserForm.password.$valid && (newUserForm.$submitted || newUserForm.password.$touched),
+                      'glyphicon-ok form-control-feedback': newUserForm.password.$valid && (newUserForm.$submitted || newUserForm.password.$touched)}"
+           ng-if="newUserForm.$submitted || newUserForm.password.$touched">
+        </span>
+        <div ng-messages="newUserForm.password.$error" role="alert" ng-if="newUserForm.password.$touched || newUserForm.$submitted">
+          <span class="help-block" ng-message="required">Password cannot be blank</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group no-gap-row-below">
+      <div class="col-md-offset-4 col-md-4">
+       <p><strong>Profile Picture:</strong></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-4">
+       <input name="profilePic"
+          ng-model="profilePic"
+            accept="image/*"
+              type="file"
+              ngf-select />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-7 col-md-1">
+        <button type="submit" class="btn btn-primary" ng-disabled="newUserForm.$invalid">Create</button>
+      </div>
+    </div>
+  </form>
+</div>

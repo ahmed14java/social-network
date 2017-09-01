@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-offset-5 col-md-2">
+    <h1><center>Login</center></h1>
+  </div>
+</div>
+<form name="loginForm" class="form-horizontal" ng-submit="login()" novalidate>
+  <div class="form-group no-gap-row-below">
+    <div class="col-md-offset-4 col-md-4">
+      <div class="bg-danger">
+        <p class="text-center">Username and/or password is incorrect</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group no-gap-row-below">
+    <div class="col-md-offset-4 col-md-4">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-at fa-fw"></i></span>
+        <input name="username"
+               type="text"
+               class="form-control"
+               placeholder="Username"
+               ng-model="user.username"
+               ng-minlength="4"
+               ng-maxlength="16"
+               ng-trim
+               required />
+      </div>
+    </div>
+  </div>
+  <div class="form-group small-gap-row-below">
+    <div class="col-md-offset-4 col-md-4">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+        <input name="password"
+               type="password"
+               class="form-control"
+               placeholder="Password"
+               ng-model="user.password"
+               required>
+      </div>
+    </div>
+  </div>
+  <div class="form-group small-gap-row-below">
+    <div class="col-md-offset-4 col-md-2">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-4">
+      <button type="submit" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Login</button>
+    </div>
+  </div>
+</form>

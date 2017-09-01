@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="web-gui-app">
+  <div ui-view></div>
+
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-messages/angular-messages.min.js"></script>
+  <script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="node_modules/lodash/lodash.min.js"></script>
+  <script src="node_modules/restangular/dist/restangular.min.js"></script>
+
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/froala_editor.min.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/froala_style.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="node_modules/codemirror/lib/codemirror.css" />
+
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/char_counter.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/code_view.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/colors.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/emoticons.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/file.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/fullscreen.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/image.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/image_manager.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/line_breaker.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/quick_insert.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/table.css" />
+  <link rel="stylesheet" type="text/css" href="node_modules/froala-editor/css/plugins/video.css" />
+
+  <script src="node_modules/froala-editor/js/froala_editor.min.js"></script>
+
+  <script src="node_modules/codemirror/lib/codemirror.js"></script>
+  <script src="node_modules/codemirror/mode/xml/xml.js"></script>
+
+  <script src="node_modules/froala-editor/js/plugins/align.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/char_counter.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/code_beautifier.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/code_view.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/colors.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/emoticons.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/entities.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/file.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/font_family.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/font_size.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/fullscreen.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/image.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/image_manager.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/inline_style.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/line_breaker.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/link.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/lists.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/paragraph_format.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/paragraph_style.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/quick_insert.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/quote.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/table.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/save.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/url.min.js"></script>
+  <script src="node_modules/froala-editor/js/plugins/video.min.js"></script>
+
+  <script src="node_modules/angular-froala/src/angular-froala.js"></script>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/app.routes.welcome.js"></script>
+  <script src="app/app.routes.home.js"></script>
+
+  <script src="app/components/shared/headers/visitantHeaderController.js"></script>
+  <script src="app/components/shared/headers/userHeaderController.js"></script>
+
+  <script src="app/components/shared/directives/serviceValidatedDirective.js"></script>
+
+  <script src="app/components/shared/RestangularClients.js"></script>
+
+  <script src="app/components/user/userController.js"></script>
+  <script src="app/components/user/userService.js"></script>
+
+  <script src="app/components/user/profile/profileController.js"></script>
+
+  <script src="app/components/post/postController.js"></script>
+  <script src="app/components/post/postService.js"></script>
+
+  <script src="app/components/timeline/timelineController.js"></script>
+  <script src="app/components/timeline/timelineService.js"></script>
+
+</body>
+</html>
