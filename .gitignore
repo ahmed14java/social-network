@@ -9,3 +9,6 @@
 dependency-reduced-pom.xml
 target/
 bin/
+
+#Ignore ElasticSearch
+data/
