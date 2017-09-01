@@ -1,11 +1,15 @@
-# Ignore Eclipse stuff
+node_modules/
 
-.classpath
-.project
-.settings/
+logs
+target
+.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
 .mvn/
 
-#Ignore Maven Stuff
 dependency-reduced-pom.xml
 target/
 bin/
